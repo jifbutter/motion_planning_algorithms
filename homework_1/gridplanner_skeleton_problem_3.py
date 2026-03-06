@@ -79,7 +79,6 @@ class Node:
 
         # Clear the parent (used for the search tree), as well as the
         # actual cost to reach (via the parent).
-        # FIXME: You may want to add further information as needed here.
         self.parent = None      # No parent
         self.cost   = inf       # Unable to reach = infinite cost
 
@@ -87,15 +86,26 @@ class Node:
         self.seen = False
         self.done = False
 
+        # predicted_path_cost = real distance from start to node + estimated distance from node to goal
+        self.predicted_path_cost = inf
+
 
     # Define the Manhattan distance to another node.
     def distance(self, other):
         return abs(self.row - other.row) + abs(self.col - other.col)
+    
+    def direction_cost(self, other, direction):
+        if direction == "vertical":
+            return 9 * (1 + abs(self.col - 9)) * abs(self.row - other.row)
+        elif direction == "horizontal":
+            return 5 * (1 +abs(self.row - 5)) * abs(self.col - other.col)
+        else:
+            return None
 
     # Define the "less-than" to enable sorting by cost.
     def __lt__(self, other):
-        return self.cost < other.cost
-
+        # Queue based on total predicted path cost
+        return self.predicted_path_cost < other.predicted_path_cost
 
     # Print (for debugging).
     def __str__(self):
@@ -121,10 +131,14 @@ def planner(start, goal, show = None):
     start.seen   = True
     start.cost   = 0
     start.parent = None
+    x = 10
+    start.predicted_path_cost = start.cost + x * start.distance(goal)
     onDeck = [start]
+    path = []
 
     # Continually expand/build the search tree.
     print("Starting the processing...")
+    
     while True:
         # Show the grid.
         if show:
@@ -137,24 +151,42 @@ def planner(start, goal, show = None):
 
         # Grab the next state (first on the storted on-deck list).
         node = onDeck.pop(0)
+        node.done = True
 
-        ####################
-        FIXME: ADD CODE HERE
+        if node is goal:
+            break
 
-        The start, goal, this popped node are all members of the
-        Node class above.  As such, you can see/update their
-        status flags.  As well as determine their neighbors.
+        for neighbor in node.neighbors:
+            # Don't process neighbor if it's already been processed
+            if neighbor.done:
+                continue
+            
+            cost_to_go = x * neighbor.distance(goal)
+            
+            # Check if neighbor has been processed or if there's a shorter route to it
+            new_cost = node.cost + 1
+            if not (neighbor.seen) or (new_cost < neighbor.cost):
+                # If neighbor is in onDeck and is being replaced with a lower cost, remove the previous one
+                try:
+                    onDeck.remove(neighbor)
+                except ValueError:
+                    pass
 
-        Please update the appropriate status flags and the onDeck
-        list to construct the search tree.
+                neighbor.cost = new_cost
+                neighbor.predicted_path_cost = new_cost + cost_to_go
+                neighbor.seen = True
+                neighbor.parent = node
+                bisect.insort(onDeck, neighbor)
+            else:
+                pass
 
-        When the search tree is complete, you should construct the
-        path being a list of nodes from the start node to the goal
-        node inclusive.  Please return this path.
-        ####################
-
+    # Work way backwards and go from goal to start using parent nodes, then reverse
+    node = goal
+    while node is not None:
+        path.append(node)
+        node = node.parent
+    path.reverse()             
     return path
-
 
 ######################################################################
 #

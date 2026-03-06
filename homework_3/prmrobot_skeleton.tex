@@ -1,0 +1,628 @@
+
+\documentclass{article}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+\begin{document}
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}prmrobot.py}
+
+\PY{l+s+sd}{   This is the PRM skeleton code for the robot planning problem.}
+
+\PY{l+s+sd}{   PLEASE FINISH WRITING THE CODE, especially where marked by FIXME.}
+
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+
+\PY{k+kn}{import} \PY{n+nn}{bisect}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+\PY{k+kn}{import} \PY{n+nn}{random}
+\PY{k+kn}{import} \PY{n+nn}{time}
+
+\PY{k+kn}{from} \PY{n+nn}{math}               \PY{k+kn}{import} \PY{n}{inf}\PY{p}{,} \PY{n}{pi}\PY{p}{,} \PY{n}{sin}\PY{p}{,} \PY{n}{cos}\PY{p}{,} \PY{n}{sqrt}\PY{p}{,} \PY{n}{ceil}\PY{p}{,} \PY{n}{dist}
+
+\PY{k+kn}{from} \PY{n+nn}{shapely}\PY{n+nn}{.}\PY{n+nn}{geometry}   \PY{k+kn}{import} \PY{n}{Point}\PY{p}{,} \PY{n}{LineString}\PY{p}{,} \PY{n}{Polygon}
+\PY{k+kn}{from} \PY{n+nn}{shapely}\PY{n+nn}{.}\PY{n+nn}{geometry}   \PY{k+kn}{import} \PY{n}{MultiLineString}\PY{p}{,} \PY{n}{MultiPolygon}
+\PY{k+kn}{from} \PY{n+nn}{shapely}\PY{n+nn}{.}\PY{n+nn}{prepared}   \PY{k+kn}{import} \PY{n}{prep}
+
+\PY{k+kn}{from} \PY{n+nn}{vandercorput}       \PY{k+kn}{import} \PY{n}{vandercorput}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   Parameters}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   FIXME: Define the N/K...}
+\PY{c+c1}{\PYZsh{}}
+\PY{n}{N} \PY{o}{=} \PY{l+m+mi}{20}
+\PY{n}{K} \PY{o}{=} \PY{l+m+mi}{2}
+
+\PY{c+c1}{\PYZsh{} Decide whether to allow unlimited joints (360deg is same as 0deg)}
+\PY{n}{UNLIMITEDJOINTS} \PY{o}{=} \PY{k+kc}{True}
+
+\PY{c+c1}{\PYZsh{} Define the robot dimensions}
+\PY{n}{L1} \PY{o}{=} \PY{l+m+mf}{1.0}        \PY{c+c1}{\PYZsh{} Base link}
+\PY{n}{L2} \PY{o}{=} \PY{l+m+mf}{1.0}        \PY{c+c1}{\PYZsh{} Middle link}
+\PY{n}{L3} \PY{o}{=} \PY{l+m+mf}{1.0}        \PY{c+c1}{\PYZsh{} Tip link}
+
+\PY{c+c1}{\PYZsh{} Goal is 0.5 * sqrt(2) = 0.35, so distance to wall has to be \PYZlt{} 0.35}
+\PY{n}{DISTANCETOWALL} \PY{o}{=} \PY{l+m+mf}{0.15}
+\PY{n}{STEPSIZE}       \PY{o}{=} \PY{l+m+mf}{0.05}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   Angle Wrapping Utilities (No Fixes Needed)}
+\PY{c+c1}{\PYZsh{}}
+
+\PY{c+c1}{\PYZsh{} Angle Wrap Utility.  Return the angle wrapped into +/\PYZhy{} 1/2 of full range.}
+\PY{k}{def} \PY{n+nf}{wrap}\PY{p}{(}\PY{n}{angle}\PY{p}{,} \PY{n}{fullrange}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{angle} \PY{o}{\PYZhy{}} \PY{n}{fullrange} \PY{o}{*} \PY{n+nb}{round}\PY{p}{(}\PY{n}{angle}\PY{o}{/}\PY{n}{fullrange}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{wrap180}\PY{p}{(}\PY{n}{angle}\PY{p}{)}\PY{p}{:}  \PY{k}{return} \PY{n}{wrap}\PY{p}{(}\PY{n}{angle}\PY{p}{,}   \PY{n}{pi}\PY{p}{)}
+\PY{k}{def} \PY{n+nf}{wrap360}\PY{p}{(}\PY{n}{angle}\PY{p}{)}\PY{p}{:}  \PY{k}{return} \PY{n}{wrap}\PY{p}{(}\PY{n}{angle}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{pi}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   World Definitions (No Fixes Needed)}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   List of obstacles/objects as well as the start/goal.}
+\PY{c+c1}{\PYZsh{}}
+\PY{p}{(}\PY{n}{xmin}\PY{p}{,} \PY{n}{xmax}\PY{p}{)} \PY{o}{=} \PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{3.5}\PY{p}{,} \PY{l+m+mf}{3.5}\PY{p}{)}
+\PY{p}{(}\PY{n}{ymin}\PY{p}{,} \PY{n}{ymax}\PY{p}{)} \PY{o}{=} \PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{3.5}\PY{p}{,} \PY{l+m+mf}{3.5}\PY{p}{)}
+
+\PY{n}{xlabels} \PY{o}{=} \PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{3.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{2.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{,} \PY{l+m+mf}{3.5}\PY{p}{)}
+\PY{n}{ylabels} \PY{o}{=} \PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{3.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{2.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{,} \PY{l+m+mf}{3.5}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Collect all the walls}
+\PY{n}{walls} \PY{o}{=} \PY{n}{MultiLineString}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{p}{[} \PY{l+m+mf}{0.5}\PY{p}{,}  \PY{l+m+mf}{3.5}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mf}{0.5}\PY{p}{,}  \PY{l+m+mf}{1.5}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mf}{1.0}\PY{p}{,}  \PY{l+m+mf}{1.0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mf}{3.5}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                         \PY{p}{[}\PY{p}{[} \PY{l+m+mf}{3.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mf}{1.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mf}{3.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{3.0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                         \PY{p}{[}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mf}{3.5}\PY{p}{,}  \PY{l+m+mf}{1.0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mf}{1.5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{3.5}\PY{p}{]}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Define the start/goal states (joint values)}
+\PY{p}{(}\PY{n}{q1start}\PY{p}{,} \PY{n}{q2start}\PY{p}{,} \PY{n}{q3start}\PY{p}{)} \PY{o}{=} \PY{p}{(} \PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
+\PY{p}{(}\PY{n}{q1goal}\PY{p}{,}  \PY{n}{q2goal}\PY{p}{,}  \PY{n}{q3goal}\PY{p}{)}  \PY{o}{=} \PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Define the drawing dimensions.}
+\PY{n}{STEPSIZEDRAW} \PY{o}{=} \PY{l+m+mf}{0.5}      \PY{c+c1}{\PYZsh{} Joint step size when drawing the paths}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   Visualization Class (No Fixes Needed)}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   This renders the world.  In particular it provides the methods:}
+\PY{c+c1}{\PYZsh{}     show(text = \PYZsq{}\PYZsq{})                   Show the current figure}
+\PY{c+c1}{\PYZsh{}     drawNode(node,         **kwargs)  Draw a single node}
+\PY{c+c1}{\PYZsh{}     drawEdge(node1, node2, **kwargs)  Draw an edge between nodes}
+\PY{c+c1}{\PYZsh{}     drawPath(path,         **kwargs)  Draw a path (list of nodes)}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{} Visualization Class.}
+\PY{k}{class} \PY{n+nc}{Visualization}\PY{p}{:}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Clear the current, or create a new figure.}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{clf}\PY{p}{(}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Create a new axes, enable the grid, and set axis limits.}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{True}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{on}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}xlim}\PY{p}{(}\PY{n}{xmin}\PY{p}{,} \PY{n}{xmax}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{n}{ymin}\PY{p}{,} \PY{n}{ymax}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{xlabels}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}yticks}\PY{p}{(}\PY{n}{ylabels}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}aspect}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{equal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Show the walls.}
+        \PY{k}{for} \PY{n}{l} \PY{o+ow}{in} \PY{n}{walls}\PY{o}{.}\PY{n}{geoms}\PY{p}{:}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{l}\PY{o}{.}\PY{n}{xy}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Place joint 0 only once!}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{add\PYZus{}artist}\PY{p}{(}\PY{n}{plt}\PY{o}{.}\PY{n}{Circle}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{radius}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{)}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Show.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{show}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{text} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Show the plot.}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{pause}\PY{p}{(}\PY{l+m+mf}{0.001}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} If text is specified, print and wait for confirmation.}
+        \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{text}\PY{p}{)}\PY{o}{\PYZgt{}}\PY{l+m+mi}{0}\PY{p}{:}
+            \PY{n+nb}{input}\PY{p}{(}\PY{n}{text} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ (hit return to continue)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{drawTip}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{node}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{arrow}\PY{p}{(}\PY{n}{node}\PY{o}{.}\PY{n}{xB}\PY{p}{,} \PY{n}{node}\PY{o}{.}\PY{n}{yB}\PY{p}{,}
+                  \PY{l+m+mf}{0.9}\PY{o}{*}\PY{p}{(}\PY{n}{node}\PY{o}{.}\PY{n}{xC}\PY{o}{\PYZhy{}}\PY{n}{node}\PY{o}{.}\PY{n}{xB}\PY{p}{)}\PY{p}{,} \PY{l+m+mf}{0.9}\PY{o}{*}\PY{p}{(}\PY{n}{node}\PY{o}{.}\PY{n}{yC}\PY{o}{\PYZhy{}}\PY{n}{node}\PY{o}{.}\PY{n}{yB}\PY{p}{)}\PY{p}{,}
+                  \PY{n}{head\PYZus{}width}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{n}{head\PYZus{}length}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{drawRobot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{node}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{node}\PY{o}{.}\PY{n}{xA}\PY{p}{,} \PY{n}{node}\PY{o}{.}\PY{n}{xB}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{node}\PY{o}{.}\PY{n}{yA}\PY{p}{,} \PY{n}{node}\PY{o}{.}\PY{n}{yB}\PY{p}{]}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{drawTip}\PY{p}{(}\PY{n}{node}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+        \PY{n}{kwargs}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{radius}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{=}\PY{l+m+mf}{0.05}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{add\PYZus{}artist}\PY{p}{(}\PY{n}{plt}\PY{o}{.}\PY{n}{Circle}\PY{p}{(}\PY{p}{(}\PY{n}{node}\PY{o}{.}\PY{n}{xA}\PY{p}{,}\PY{n}{node}\PY{o}{.}\PY{n}{yA}\PY{p}{)}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{add\PYZus{}artist}\PY{p}{(}\PY{n}{plt}\PY{o}{.}\PY{n}{Circle}\PY{p}{(}\PY{p}{(}\PY{n}{node}\PY{o}{.}\PY{n}{xB}\PY{p}{,}\PY{n}{node}\PY{o}{.}\PY{n}{yB}\PY{p}{)}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{drawNode}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{node}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{drawTip}\PY{p}{(}\PY{n}{node}\PY{p}{,} \PY{n}{zorder}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{drawEdge}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{node1}\PY{p}{,} \PY{n}{node2}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{n}{node1}\PY{o}{.}\PY{n}{xB} \PY{o}{+} \PY{n}{node1}\PY{o}{.}\PY{n}{xC}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{(}\PY{n}{node2}\PY{o}{.}\PY{n}{xB} \PY{o}{+} \PY{n}{node2}\PY{o}{.}\PY{n}{xC}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+                 \PY{p}{[}\PY{p}{(}\PY{n}{node1}\PY{o}{.}\PY{n}{yB} \PY{o}{+} \PY{n}{node1}\PY{o}{.}\PY{n}{yC}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{(}\PY{n}{node2}\PY{o}{.}\PY{n}{yB} \PY{o}{+} \PY{n}{node2}\PY{o}{.}\PY{n}{yC}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{drawPath}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{path}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Choose the larger step size to keep the drawings clean.}
+        \PY{n}{step} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{n}{STEPSIZE}\PY{p}{,} \PY{n}{STEPSIZEDRAW}\PY{p}{)}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+            \PY{n}{n} \PY{o}{=} \PY{n}{ceil}\PY{p}{(}\PY{n}{path}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{distance}\PY{p}{(}\PY{n}{path}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{o}{/} \PY{n}{step}\PY{p}{)}
+            \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+                \PY{n}{node} \PY{o}{=} \PY{n}{path}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{intermediate}\PY{p}{(}\PY{n}{path}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{j}\PY{o}{/}\PY{n}{n}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{drawRobot}\PY{p}{(}\PY{n}{node}\PY{p}{,} \PY{n}{zorder}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+                \PY{n}{plt}\PY{o}{.}\PY{n}{pause}\PY{p}{(}\PY{l+m+mf}{0.1}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{drawRobot}\PY{p}{(}\PY{n}{path}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{zorder}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   A* Planning Algorithm (No Fixes Needed)}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{def} \PY{n+nf}{astar}\PY{p}{(}\PY{n}{nodes}\PY{p}{,} \PY{n}{start}\PY{p}{,} \PY{n}{goal}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Clear the A* search tree information.}
+    \PY{k}{for} \PY{n}{node} \PY{o+ow}{in} \PY{n}{nodes}\PY{p}{:}
+        \PY{n}{node}\PY{o}{.}\PY{n}{done}     \PY{o}{=} \PY{k+kc}{False}
+        \PY{n}{node}\PY{o}{.}\PY{n}{seen}     \PY{o}{=} \PY{k+kc}{False}
+        \PY{n}{node}\PY{o}{.}\PY{n}{parent}   \PY{o}{=} \PY{k+kc}{None}
+        \PY{n}{node}\PY{o}{.}\PY{n}{creach}   \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{n}{node}\PY{o}{.}\PY{n}{ctogoest} \PY{o}{=} \PY{n}{inf}
+
+    \PY{c+c1}{\PYZsh{} Prepare the still empty *sorted* on\PYZhy{}deck queue.}
+    \PY{n}{onDeck} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+    \PY{c+c1}{\PYZsh{} Begin with the start node on\PYZhy{}deck.}
+    \PY{n}{start}\PY{o}{.}\PY{n}{done}     \PY{o}{=} \PY{k+kc}{False}
+    \PY{n}{start}\PY{o}{.}\PY{n}{seen}     \PY{o}{=} \PY{k+kc}{True}
+    \PY{n}{start}\PY{o}{.}\PY{n}{parent}   \PY{o}{=} \PY{k+kc}{None}
+    \PY{n}{start}\PY{o}{.}\PY{n}{creach}   \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{n}{start}\PY{o}{.}\PY{n}{ctogoest} \PY{o}{=} \PY{n}{start}\PY{o}{.}\PY{n}{costToGoEst}\PY{p}{(}\PY{n}{goal}\PY{p}{)}
+    \PY{n}{bisect}\PY{o}{.}\PY{n}{insort}\PY{p}{(}\PY{n}{onDeck}\PY{p}{,} \PY{n}{start}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Continually expand/build the search tree.}
+    \PY{k}{while} \PY{k+kc}{True}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Make sure we have something pending in the on\PYZhy{}deck queue.}
+        \PY{c+c1}{\PYZsh{} Otherwise we were unable to find a path!}
+        \PY{k}{if} \PY{o+ow}{not} \PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{onDeck}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{k+kc}{None}
+
+        \PY{c+c1}{\PYZsh{} Grab the next node (first on deck).}
+        \PY{n}{node} \PY{o}{=} \PY{n}{onDeck}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Mark this node as done and check if the goal is thereby done.}
+        \PY{n}{node}\PY{o}{.}\PY{n}{done} \PY{o}{=} \PY{k+kc}{True}
+        \PY{k}{if} \PY{n}{goal}\PY{o}{.}\PY{n}{done}\PY{p}{:}
+            \PY{k}{break}
+
+        \PY{c+c1}{\PYZsh{} Add the neighbors to the on\PYZhy{}deck queue (or update)}
+        \PY{k}{for} \PY{n}{neighbor} \PY{o+ow}{in} \PY{n}{node}\PY{o}{.}\PY{n}{neighbors}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{} Skip if already done.}
+            \PY{k}{if} \PY{n}{neighbor}\PY{o}{.}\PY{n}{done}\PY{p}{:}
+                \PY{k}{continue}
+
+            \PY{c+c1}{\PYZsh{} Compute the cost to reach the neighbor via this new path.}
+            \PY{n}{creach} \PY{o}{=} \PY{n}{node}\PY{o}{.}\PY{n}{creach} \PY{o}{+} \PY{n}{node}\PY{o}{.}\PY{n}{costToConnect}\PY{p}{(}\PY{n}{neighbor}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} Just add to on\PYZhy{}deck if not yet seen (in correct order).}
+            \PY{k}{if} \PY{o+ow}{not} \PY{n}{neighbor}\PY{o}{.}\PY{n}{seen}\PY{p}{:}
+                \PY{n}{neighbor}\PY{o}{.}\PY{n}{seen}     \PY{o}{=} \PY{k+kc}{True}
+                \PY{n}{neighbor}\PY{o}{.}\PY{n}{parent}   \PY{o}{=} \PY{n}{node}
+                \PY{n}{neighbor}\PY{o}{.}\PY{n}{creach}   \PY{o}{=} \PY{n}{creach}
+                \PY{n}{neighbor}\PY{o}{.}\PY{n}{ctogoest} \PY{o}{=} \PY{n}{neighbor}\PY{o}{.}\PY{n}{costToGoEst}\PY{p}{(}\PY{n}{goal}\PY{p}{)}
+                \PY{n}{bisect}\PY{o}{.}\PY{n}{insort}\PY{p}{(}\PY{n}{onDeck}\PY{p}{,} \PY{n}{neighbor}\PY{p}{)}
+                \PY{k}{continue}
+
+            \PY{c+c1}{\PYZsh{} Skip if the previous path to reach (cost) was same or better!}
+            \PY{k}{if} \PY{n}{neighbor}\PY{o}{.}\PY{n}{creach} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{creach}\PY{p}{:}
+                \PY{k}{continue}
+
+            \PY{c+c1}{\PYZsh{} Update the neighbor\PYZsq{}s connection and resort the on\PYZhy{}deck queue.}
+            \PY{c+c1}{\PYZsh{} Note the cost\PYZhy{}to\PYZhy{}go estimate does not change.}
+            \PY{n}{neighbor}\PY{o}{.}\PY{n}{parent} \PY{o}{=} \PY{n}{node}
+            \PY{n}{neighbor}\PY{o}{.}\PY{n}{creach} \PY{o}{=} \PY{n}{creach}
+            \PY{n}{onDeck}\PY{o}{.}\PY{n}{remove}\PY{p}{(}\PY{n}{neighbor}\PY{p}{)}
+            \PY{n}{bisect}\PY{o}{.}\PY{n}{insort}\PY{p}{(}\PY{n}{onDeck}\PY{p}{,} \PY{n}{neighbor}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Build the path.}
+    \PY{n}{path} \PY{o}{=} \PY{p}{[}\PY{n}{goal}\PY{p}{]}
+    \PY{k}{while} \PY{n}{path}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{parent} \PY{o+ow}{is} \PY{o+ow}{not} \PY{k+kc}{None}\PY{p}{:}
+        \PY{n}{path}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{path}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{parent}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Return the path.}
+    \PY{k}{return} \PY{n}{path}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   Node Definition (to be fixed \PYZhy{} see FIXME)}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{class} \PY{n+nc}{Node}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{q1}\PY{p}{,} \PY{n}{q2}\PY{p}{,} \PY{n}{q3}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Define/remember the state (joint angles).}
+        \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3}\PY{p}{)} \PY{o}{=} \PY{p}{(}\PY{n}{q1}\PY{p}{,} \PY{n}{q2}\PY{p}{,} \PY{n}{q3}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Pre\PYZhy{}compute the link positions.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xA} \PY{o}{=} \PY{n}{L1}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{q1}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{yA} \PY{o}{=} \PY{n}{L1}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{q1}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xB} \PY{o}{=} \PY{n}{L1}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{q1}\PY{p}{)} \PY{o}{+} \PY{n}{L2}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{q1}\PY{o}{+}\PY{n}{q2}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{yB} \PY{o}{=} \PY{n}{L1}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{q1}\PY{p}{)} \PY{o}{+} \PY{n}{L2}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{q1}\PY{o}{+}\PY{n}{q2}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xC} \PY{o}{=} \PY{n}{L1}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{q1}\PY{p}{)} \PY{o}{+} \PY{n}{L2}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{q1}\PY{o}{+}\PY{n}{q2}\PY{p}{)} \PY{o}{+} \PY{n}{L3}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{q1}\PY{o}{+}\PY{n}{q2}\PY{o}{+}\PY{n}{q3}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{yC} \PY{o}{=} \PY{n}{L1}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{q1}\PY{p}{)} \PY{o}{+} \PY{n}{L2}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{q1}\PY{o}{+}\PY{n}{q2}\PY{p}{)} \PY{o}{+} \PY{n}{L3}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{q1}\PY{o}{+}\PY{n}{q2}\PY{o}{+}\PY{n}{q3}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{links} \PY{o}{=} \PY{n}{LineString}\PY{p}{(}
+            \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xA}\PY{p}{,}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{yA}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xB}\PY{p}{,}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{yB}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xC}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{yC}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Edges = set of neighbors.  This needs to filled in.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{neighbors} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Clear the status, connection, and costs for the A* search tree.}
+        \PY{c+c1}{\PYZsh{}   TRUNK:  done = True}
+        \PY{c+c1}{\PYZsh{}   LEAF:   done = False, seen = True}
+        \PY{c+c1}{\PYZsh{}   AIR:    done = False, seen = False}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{done}     \PY{o}{=} \PY{k+kc}{False}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{seen}     \PY{o}{=} \PY{k+kc}{False}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{parent}   \PY{o}{=} \PY{k+kc}{None}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{creach}   \PY{o}{=} \PY{l+m+mi}{0}               \PY{c+c1}{\PYZsh{} Known/actual cost to get here}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ctogoest} \PY{o}{=} \PY{n}{inf}             \PY{c+c1}{\PYZsh{} Estimated cost to go from here}
+
+    \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+    \PY{c+c1}{\PYZsh{} A* functions:}
+    \PY{c+c1}{\PYZsh{} Actual cost to connect to a neighbor and estimated to\PYZhy{}go cost to}
+    \PY{c+c1}{\PYZsh{} a distant (goal) node.}
+    \PY{k}{def} \PY{n+nf}{costToConnect}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{distance}\PY{p}{(}\PY{n}{other}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{costToGoEst}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{distance}\PY{p}{(}\PY{n}{other}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Define the \PYZdq{}less\PYZhy{}than\PYZdq{} to enable sorting in A*.  Use total cost estimate.}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}lt\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{creach} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ctogoest}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{creach} \PY{o}{+} \PY{n}{other}\PY{o}{.}\PY{n}{ctogoest}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+    \PY{c+c1}{\PYZsh{} PRM functions:}
+    \PY{c+c1}{\PYZsh{} Compute the relative distance to another node.}
+    \PY{k}{def} \PY{n+nf}{distance}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} FIXME: Compute and return the distance (used to sort).}
+        
+        \PY{c+c1}{\PYZsh{} If unlimited joints, wrap around 360 degrees}
+        \PY{c+c1}{\PYZsh{} else, just find difference between q\PYZsq{}s}
+        \PY{k}{if} \PY{n}{UNLIMITEDJOINTS}\PY{p}{:}
+            \PY{n}{dist1} \PY{o}{=} \PY{n}{wrap360}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1} \PY{o}{\PYZhy{}} \PY{n}{other}\PY{o}{.}\PY{n}{q1}\PY{p}{)}
+            \PY{n}{dist2} \PY{o}{=} \PY{n}{wrap360}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2} \PY{o}{\PYZhy{}} \PY{n}{other}\PY{o}{.}\PY{n}{q2}\PY{p}{)}
+            \PY{n}{dist3} \PY{o}{=} \PY{n}{wrap360}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3} \PY{o}{\PYZhy{}} \PY{n}{other}\PY{o}{.}\PY{n}{q3}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n}{dist1} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1} \PY{o}{\PYZhy{}} \PY{n}{other}\PY{o}{.}\PY{n}{q1}
+            \PY{n}{dist2} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2} \PY{o}{\PYZhy{}} \PY{n}{other}\PY{o}{.}\PY{n}{q2}
+            \PY{n}{dist3} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3} \PY{o}{\PYZhy{}} \PY{n}{other}\PY{o}{.}\PY{n}{q3}
+
+        \PY{k}{return} \PY{n}{sqrt}\PY{p}{(}\PY{n}{dist1} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2} \PY{o}{+} \PY{n}{dist2} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2} \PY{o}{+} \PY{n}{dist3} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Check whether in free space.}
+    \PY{k}{def} \PY{n+nf}{inFreespace}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{p}{(}\PY{n}{walls}\PY{o}{.}\PY{n}{distance}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{links}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{n}{DISTANCETOWALL}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Check the local planner \PYZhy{} whether this connects to another node.}
+    \PY{k}{def} \PY{n+nf}{connectsTo}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
+        \PY{n}{n} \PY{o}{=} \PY{n}{ceil}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{distance}\PY{p}{(}\PY{n}{other}\PY{p}{)} \PY{o}{/} \PY{n}{STEPSIZE}\PY{p}{)}
+        \PY{k}{for} \PY{n}{delta} \PY{o+ow}{in} \PY{n}{vandercorput}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{/}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{o+ow}{not} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intermediate}\PY{p}{(}\PY{n}{other}\PY{p}{,} \PY{n}{delta}\PY{p}{)}\PY{o}{.}\PY{n}{inFreespace}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{k+kc}{False}
+        \PY{k}{return} \PY{k+kc}{True}
+
+    \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+    \PY{c+c1}{\PYZsh{} Utilities:}
+    \PY{c+c1}{\PYZsh{} In case we want to print the node.}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}Joints }\PY{l+s+si}{\PYZpc{}6.1f}\PY{l+s+s2}{deg,}\PY{l+s+si}{\PYZpc{}6.1f}\PY{l+s+s2}{deg,}\PY{l+s+si}{\PYZpc{}6.1f}\PY{l+s+s2}{deg\PYZgt{}}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}}
+                \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1} \PY{o}{*} \PY{l+m+mi}{180}\PY{o}{/}\PY{n}{pi}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2} \PY{o}{*} \PY{l+m+mi}{180}\PY{o}{/}\PY{n}{pi}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3} \PY{o}{*} \PY{l+m+mi}{180}\PY{o}{/}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Compute/create an intermediate node.  This can be useful if you}
+    \PY{c+c1}{\PYZsh{} need to check the local planner by testing intermediate nodes.}
+    \PY{c+c1}{\PYZsh{} If allowing multiple joint rotations, this should wrap the angle}
+    \PY{c+c1}{\PYZsh{} difference to +/\PYZhy{}180deg.}
+    \PY{k}{def} \PY{n+nf}{intermediate}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{,} \PY{n}{alpha}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} FIXME: Compute and return the distance (used to sort).}
+
+        \PY{k}{if} \PY{n}{UNLIMITEDJOINTS}\PY{p}{:}
+            \PY{n}{new\PYZus{}q1} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1} \PY{o}{+} \PY{n}{alpha} \PY{o}{*} \PY{n}{wrap360}\PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{q1} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1}\PY{p}{)}
+            \PY{n}{new\PYZus{}q2} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2} \PY{o}{+} \PY{n}{alpha} \PY{o}{*} \PY{n}{wrap360}\PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{q2} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2}\PY{p}{)}
+            \PY{n}{new\PYZus{}q3} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3} \PY{o}{+} \PY{n}{alpha} \PY{o}{*} \PY{n}{wrap360}\PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{q3} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n}{new\PYZus{}q1} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1} \PY{o}{+} \PY{n}{alpha} \PY{o}{*} \PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{q1} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q1}\PY{p}{)}
+            \PY{n}{new\PYZus{}q2} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2} \PY{o}{+} \PY{n}{alpha} \PY{o}{*} \PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{q2} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q2}\PY{p}{)}
+            \PY{n}{new\PYZus{}q3} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3} \PY{o}{+} \PY{n}{alpha} \PY{o}{*} \PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{q3} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{q3}\PY{p}{)}
+
+        \PY{k}{return} \PY{n}{Node}\PY{p}{(}\PY{n}{new\PYZus{}q1}\PY{p}{,} \PY{n}{new\PYZus{}q2}\PY{p}{,} \PY{n}{new\PYZus{}q3}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   PRM Functions (to be fixed \PYZhy{} see FIXME)}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{} Create the list of nodes.}
+\PY{k}{def} \PY{n+nf}{createNodesUniform}\PY{p}{(}\PY{n}{N}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} FIXME: create, similar to previous code}
+
+    \PY{c+c1}{\PYZsh{} Add nodes sampled uniformly across the space.}
+    \PY{n}{nodes} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{k}{while} \PY{n+nb}{len}\PY{p}{(}\PY{n}{nodes}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{n}{N}\PY{p}{:}
+        \PY{n}{node} \PY{o}{=} \PY{n}{Node}\PY{p}{(}\PY{n}{random}\PY{o}{.}\PY{n}{uniform}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{,} \PY{n}{pi}\PY{p}{)}\PY{p}{,}
+                    \PY{n}{random}\PY{o}{.}\PY{n}{uniform}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{,} \PY{n}{pi}\PY{p}{)}\PY{p}{,}
+                    \PY{n}{random}\PY{o}{.}\PY{n}{uniform}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{,} \PY{n}{pi}\PY{p}{)}\PY{p}{)}
+        \PY{k}{if} \PY{n}{node}\PY{o}{.}\PY{n}{inFreespace}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{nodes}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{node}\PY{p}{)}
+    \PY{k}{return} \PY{n}{nodes}
+
+
+\PY{c+c1}{\PYZsh{} Connect to K neighbors (from all, testing nearest first)}
+\PY{k}{def} \PY{n+nf}{connectKNeighbors}\PY{p}{(}\PY{n}{nodes}\PY{p}{,} \PY{n}{K}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} FIXME: copy from the previous planner code}
+
+    \PY{c+c1}{\PYZsh{} Clear any existing neighbors, which are stored as a set.}
+    \PY{k}{for} \PY{n}{node} \PY{o+ow}{in} \PY{n}{nodes}\PY{p}{:}
+        \PY{n}{node}\PY{o}{.}\PY{n}{neighbors} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Check the neighbors.}
+    \PY{k}{for} \PY{n}{node} \PY{o+ow}{in} \PY{n}{nodes}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Examine the K nearest neighbors (ignoring node itself).}
+        \PY{n}{indicies} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argsort}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{node}\PY{o}{.}\PY{n}{distance}\PY{p}{(}\PY{n}{n}\PY{p}{)} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{nodes}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} Define total connections for each node and current neighbor}
+        \PY{n}{total\PYZus{}connect} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{n}{neighbor\PYZus{}index} \PY{o}{=} \PY{l+m+mi}{1}
+
+        \PY{c+c1}{\PYZsh{} Check if total connections has reached K neighbors for given node}
+        \PY{k}{while} \PY{n}{total\PYZus{}connect} \PY{o}{\PYZlt{}} \PY{n}{K} \PY{o+ow}{and} \PY{n}{neighbor\PYZus{}index} \PY{o}{\PYZlt{}} \PY{n+nb}{len}\PY{p}{(}\PY{n}{nodes}\PY{p}{)}\PY{p}{:}
+            \PY{n}{neighbor} \PY{o}{=} \PY{n}{nodes}\PY{p}{[}\PY{n}{indicies}\PY{p}{[}\PY{n}{neighbor\PYZus{}index}\PY{p}{]}\PY{p}{]}
+            \PY{c+c1}{\PYZsh{} Force a undirected graph, so node is also neighbor\PYZsq{}s neighbor.}
+            \PY{k}{if} \PY{p}{(}\PY{n}{neighbor} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{node}\PY{o}{.}\PY{n}{neighbors}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n}{node}\PY{o}{.}\PY{n}{connectsTo}\PY{p}{(}\PY{n}{neighbor}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                \PY{n}{node}\PY{o}{.}\PY{n}{neighbors}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{neighbor}\PY{p}{)}
+                \PY{n}{neighbor}\PY{o}{.}\PY{n}{neighbors}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{node}\PY{p}{)}
+                \PY{n}{total\PYZus{}connect} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}      \PY{c+c1}{\PYZsh{} If connection successful,}
+                                        \PY{c+c1}{\PYZsh{} increase number of connections by 1}
+            \PY{n}{neighbor\PYZus{}index} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}     \PY{c+c1}{\PYZsh{} Move to next neighbor in list}
+
+\PY{c+c1}{\PYZsh{} Compute the path cost}
+\PY{k}{def} \PY{n+nf}{pathCost}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} FIXME: copy from the previous planner code}
+
+    \PY{n}{cost} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{n}{cost} \PY{o}{+}\PY{o}{=} \PY{n}{path}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{costToConnect}\PY{p}{(}\PY{n}{path}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+    \PY{k}{return} \PY{n}{cost}
+
+\PY{c+c1}{\PYZsh{} Post process the path}
+\PY{k}{def} \PY{n+nf}{postProcess}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} FIXME: copy from the previous planner code}
+
+    \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{1}
+    \PY{k}{while} \PY{n}{i} \PY{o}{\PYZlt{}} \PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{path}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}      \PY{c+c1}{\PYZsh{} Don\PYZsq{}t include the start and goal nodes}
+        \PY{n}{predecessor} \PY{o}{=} \PY{n}{path}\PY{p}{[}\PY{n}{i} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{]}
+        \PY{n}{successor} \PY{o}{=} \PY{n}{path}\PY{p}{[}\PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]}
+        \PY{k}{if} \PY{p}{(}\PY{n}{predecessor}\PY{o}{.}\PY{n}{connectsTo}\PY{p}{(}\PY{n}{successor}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+            \PY{n}{path}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{n}{i}\PY{p}{)}     \PY{c+c1}{\PYZsh{} Pop the node, but don\PYZsq{}t increment i}
+                            \PY{c+c1}{\PYZsh{} since next node will fall into its place}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n}{i} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+
+    \PY{n}{finalpath} \PY{o}{=} \PY{n}{path}
+    \PY{k}{return} \PY{n}{finalpath}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Run/Main Code (No Fixes Needed)}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{def} \PY{n+nf}{run}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Report the parameters.}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Running with}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{N}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{nodes and}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{K}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{neighbors.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Create the figure.  Some computers seem to need an additional show()?}
+    \PY{n}{visual} \PY{o}{=} \PY{n}{Visualization}\PY{p}{(}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Create the start/goal nodes.}
+    \PY{n}{startnode} \PY{o}{=} \PY{n}{Node}\PY{p}{(}\PY{n}{q1start}\PY{p}{,} \PY{n}{q2start}\PY{p}{,} \PY{n}{q3start}\PY{p}{)}
+    \PY{n}{goalnode}  \PY{o}{=} \PY{n}{Node}\PY{p}{(}\PY{n}{q1goal}\PY{p}{,}  \PY{n}{q2goal}\PY{p}{,}  \PY{n}{q3goal}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Show the start/goal nodes.}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{drawRobot}\PY{p}{(}\PY{n}{startnode}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{orange}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{drawRobot}\PY{p}{(}\PY{n}{goalnode}\PY{p}{,}  \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{purple}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Showing basic world}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Create the list of sample points.}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sampling the nodes...}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+    \PY{n}{nodes} \PY{o}{=} \PY{n}{createNodesUniform}\PY{p}{(}\PY{n}{N}\PY{p}{)}
+    \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sampled the nodes in }\PY{l+s+si}{\PYZpc{}f}\PY{l+s+s2}{sec.}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Show the sample nodes.}
+    \PY{k}{if} \PY{k+kc}{True}\PY{p}{:}
+        \PY{k}{for} \PY{n}{node} \PY{o+ow}{in} \PY{n}{nodes}\PY{p}{:}
+            \PY{n}{visual}\PY{o}{.}\PY{n}{drawNode}\PY{p}{(}\PY{n}{node}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Showing the nodes (last link only)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Add the start/goal nodes.}
+    \PY{n}{nodes}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{startnode}\PY{p}{)}
+    \PY{n}{nodes}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{goalnode}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Connect to the nearest neighbors.}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Connecting the nodes...}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+    \PY{n}{connectKNeighbors}\PY{p}{(}\PY{n}{nodes}\PY{p}{,} \PY{n}{K}\PY{p}{)}
+    \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Connected the nodes in }\PY{l+s+si}{\PYZpc{}f}\PY{l+s+s2}{sec.}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Show the neighbor connections.}
+    \PY{k}{if} \PY{k+kc}{True}\PY{p}{:}
+        \PY{k}{for} \PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{node}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{nodes}\PY{p}{)}\PY{p}{:}
+            \PY{k}{for} \PY{n}{neighbor} \PY{o+ow}{in} \PY{n}{node}\PY{o}{.}\PY{n}{neighbors}\PY{p}{:}
+                \PY{k}{if} \PY{n}{neighbor} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{nodes}\PY{p}{[}\PY{p}{:}\PY{n}{i}\PY{p}{]}\PY{p}{:}
+                    \PY{n}{visual}\PY{o}{.}\PY{n}{drawEdge}\PY{p}{(}\PY{n}{node}\PY{p}{,} \PY{n}{neighbor}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Showing the full graph}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Run the A* planner.}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Running A*...}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+    \PY{n}{path} \PY{o}{=} \PY{n}{astar}\PY{p}{(}\PY{n}{nodes}\PY{p}{,} \PY{n}{startnode}\PY{p}{,} \PY{n}{goalnode}\PY{p}{)}
+    \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ran A* in }\PY{l+s+si}{\PYZpc{}f}\PY{l+s+s2}{sec.}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} If unable to connect, show the part explored.}
+    \PY{k}{if} \PY{o+ow}{not} \PY{n}{path}\PY{p}{:}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{UNABLE TO FIND A PATH}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{k}{for} \PY{n}{node} \PY{o+ow}{in} \PY{n}{nodes}\PY{p}{:}
+            \PY{k}{if} \PY{n}{node}\PY{o}{.}\PY{n}{done}\PY{p}{:}
+                \PY{n}{visual}\PY{o}{.}\PY{n}{drawNode}\PY{p}{(}\PY{n}{node}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Showing DONE nodes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{k}{return}
+
+    \PY{c+c1}{\PYZsh{} Show the path.}
+    \PY{n}{cost} \PY{o}{=} \PY{n}{pathCost}\PY{p}{(}\PY{n}{path}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{drawPath}\PY{p}{(}\PY{n}{path}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Showing the raw path (cost/length }\PY{l+s+si}{\PYZpc{}.1f}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{cost}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Post process the path.}
+    \PY{n}{finalpath} \PY{o}{=} \PY{n}{postProcess}\PY{p}{(}\PY{n}{path}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Unwrap: If allowing multiple revolutions, this shows the nodes}
+    \PY{c+c1}{\PYZsh{} past +/\PYZhy{}180deg (to display the wrapping).}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{finalpath}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{n}{finalpath}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{finalpath}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{intermediate}\PY{p}{(}\PY{n}{finalpath}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Report the path.}
+    \PY{k}{for} \PY{n}{node} \PY{o+ow}{in} \PY{n}{finalpath}\PY{p}{:}
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{node}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Show the post\PYZhy{}processed path.}
+    \PY{n}{cost} \PY{o}{=} \PY{n}{pathCost}\PY{p}{(}\PY{n}{finalpath}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{drawPath}\PY{p}{(}\PY{n}{finalpath}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Showing the post\PYZhy{}processed path (cost/length }\PY{l+s+si}{\PYZpc{}.1f}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{cost}\PY{p}{)}
+
+
+\PY{k}{if} \PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}
+    \PY{n}{run}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\end{document}

@@ -178,7 +178,7 @@ grid13 = ['#################',
 #
 
 # Choose the grid
-grid = grid01
+grid = grid05
 
 # Choose whether to try the testing.
 TESTING = True
@@ -332,7 +332,7 @@ class Maze:
 # the movement is not possible or the new robot space and new list of
 # boxes.
 def transition(robot, boxes, direction):
-    FIXME:
+
     '''
     You are given:
         robot which is a space (class Space above)
@@ -372,11 +372,36 @@ def transition(robot, boxes, direction):
     After that, the regular results should match the numbers
     stated at the very top!
     '''
-    return None
-    or
-    return (newrobot, newboxes)
+    
+    # Extract the space next to robot's current space
+    robot_next = robot.adjacent[direction]
+    
+    # Check if robot is next to a wall
+    if robot_next is None:
+        return None
+    
+    # Check if robot is next to empty space
+    elif robot_next not in boxes:
+        newrobot = robot_next
+        return (newrobot, boxes)    # robot moves to next space, but boxes stay same
+    
+    # Robot is next to a box
+    else:
+        newrobot = robot_next
+        box_current = newrobot
+        box_next = box_current.adjacent[direction]
 
+        # Check if the box is next to another box or a wall
+        if (box_next is None) or (box_next in boxes):
+            return None
+        else:
+            # Extract index of current box space and set it to next box space at that index
+            i = boxes.index(box_current)
+            boxes[i] = box_next
+               
+            return (newrobot, boxes)
 
+                
 # Node class. This retains the state and the search tree data.  Note,
 # as we are instantiating the node as we build the tree, we already
 # know the parent and can set the cost at instantiation.  Otherwise,

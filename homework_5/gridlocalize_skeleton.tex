@@ -1,0 +1,364 @@
+
+\documentclass{article}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+\begin{document}
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}gridlocalize.py}
+
+\PY{l+s+sd}{   This is the skeleton code for the grid\PYZhy{}based localization.}
+
+\PY{l+s+sd}{   PLEASE FINISH WRITING THE CODE, especially where marked by FIXME.}
+
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+
+\PY{k+kn}{from} \PY{n+nn}{gridutilities} \PY{k+kn}{import} \PY{n}{Visualization}\PY{p}{,} \PY{n}{Robot}
+
+
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Define the Walls}
+\PY{c+c1}{\PYZsh{}}
+\PY{n}{w} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x               xx             xx               x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                xx           xx                x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                 xx         xx                 x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        xxxx      xx       xx                  x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x  xx      xx     xx                   x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x   xx      xx   xx      xxxxx         x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x    xx      xx xx     xxx   xxx       x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x     xx      xxx     xx       xx      x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x      xx      x      x         x      x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x       xx           xx         xx     x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x        x           x           x     x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x        x           x           x     x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x        x        x           x           x     x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                 xx         xx           x     x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                  x         x                  x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                  xx       xx                  x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                   xxx   xxx                   x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                     xxxxx         x           x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                                   x          xx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x                                   x         xxx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x            x                      x        xxxx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x           xxx                     x       xxxxx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x          xxxxx                    x      xxxxxx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+
+\PY{n}{walls} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mf}{1.0}\PY{o}{*}\PY{p}{(}\PY{n}{c} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{for} \PY{n}{c} \PY{o+ow}{in} \PY{n}{s}\PY{p}{]} \PY{k}{for} \PY{n}{s} \PY{o+ow}{in} \PY{n}{w}\PY{p}{]}\PY{p}{)}
+\PY{n}{rows}  \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{n}{walls}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\PY{n}{cols}  \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{n}{walls}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  PREDICTION}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Input:  bel          Grid of probabilities (current belief)}
+\PY{c+c1}{\PYZsh{}          drow, dcol   Commanded movement delta in row/col}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Output: prd          Grid of probabilities (prediction)}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{def} \PY{n+nf}{computePrediction}\PY{p}{(}\PY{n}{bel}\PY{p}{,} \PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Prepare an empty prediction grid.}
+    \PY{n}{prd} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rows}\PY{p}{,}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
+    \PY{n}{free\PYZus{}cells} \PY{o}{=} \PY{l+m+mi}{0}
+
+    \PY{c+c1}{\PYZsh{} Determine the new probablities (remember to consider walls).}
+    \PY{c+c1}{\PYZsh{} FIXME: Build up the grid of probabilities...}
+    
+    \PY{c+c1}{\PYZsh{} Loop through all of the rows and columns}
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{rows}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cols}\PY{p}{)}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{} Calculate the new position}
+            \PY{n}{new\PYZus{}row} \PY{o}{=} \PY{n}{row} \PY{o}{+} \PY{n}{drow}
+            \PY{n}{new\PYZus{}col} \PY{o}{=} \PY{n}{col} \PY{o}{+} \PY{n}{dcol}
+            
+            \PY{c+c1}{\PYZsh{} Check if new row and new col are within bounds and isn\PYZsq{}t a wall}
+            \PY{k}{if} \PY{p}{(}\PY{n}{rows} \PY{o}{\PYZgt{}} \PY{n}{new\PYZus{}row} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{cols} \PY{o}{\PYZgt{}} \PY{n}{new\PYZus{}col} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{0}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{p}{(}\PY{n}{walls}\PY{p}{[}\PY{n}{new\PYZus{}row}\PY{p}{,} \PY{n}{new\PYZus{}col}\PY{p}{]}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+                \PY{n}{prd}\PY{p}{[}\PY{n}{new\PYZus{}row}\PY{p}{,} \PY{n}{new\PYZus{}col}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{l+m+mf}{0.8} \PY{o}{*} \PY{n}{bel}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]}
+                \PY{n}{prd}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{l+m+mf}{0.2} \PY{o}{*} \PY{n}{bel}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]}
+            \PY{k}{else}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{} Assign and add probabiltiy}
+                \PY{n}{prd}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{bel}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]}
+
+    \PY{c+c1}{\PYZsh{} Loop through all cells to find the free cells}
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{rows}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cols}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{walls}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{} Keep count of number of cells that aren\PYZsq{}t walls}
+                \PY{n}{free\PYZus{}cells} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+
+    \PY{n}{uniform} \PY{o}{=} \PY{l+m+mf}{0.01} \PY{o}{/} \PY{n}{free\PYZus{}cells}
+
+    \PY{c+c1}{\PYZsh{} Loop through cells, add uniform to free cells}
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{rows}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cols}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{walls}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                \PY{n}{prd}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{l+m+mf}{0.99} \PY{o}{*} \PY{n}{prd}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{+} \PY{n}{uniform}
+            \PY{k}{else}\PY{p}{:}
+                \PY{n}{prd}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{l+m+mf}{0.99} \PY{o}{*} \PY{n}{prd}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]}
+
+    \PY{c+c1}{\PYZsh{} Check the prediction.}
+    \PY{k}{if} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{prd}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mf}{1.0}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mf}{1e\PYZhy{}12}\PY{p}{:}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{WARNING: Prediction does not add up to 100}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Return the prediction grid.}
+    \PY{k}{return} \PY{n}{prd}
+
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  MEASUREMENT UPDATE (CORRECTION)}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Input:  prior        Grid of prior probabilities (belief)}
+\PY{c+c1}{\PYZsh{}          probSensor   Grid of modeled probabilities that (sensor==True)}
+\PY{c+c1}{\PYZsh{}          sensor       Actual value of sensor (True/False)}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Output: post         Grid of posterior probabilities (updated belief)}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{def} \PY{n+nf}{updateBelief}\PY{p}{(}\PY{n}{prior}\PY{p}{,} \PY{n}{probSensor}\PY{p}{,} \PY{n}{sensor}\PY{p}{)}\PY{p}{:}
+    \PY{n}{post} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rows}\PY{p}{,}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
+    \PY{n}{total} \PY{o}{=} \PY{l+m+mi}{0}
+    
+    \PY{c+c1}{\PYZsh{} Create the posterior belief.}
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{rows}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cols}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{sensor}\PY{p}{:}
+                \PY{n}{post}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{n}{prior}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{*} \PY{n}{probSensor}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]}
+            \PY{k}{else}\PY{p}{:}
+                \PY{n}{post}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{n}{prior}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{probSensor}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]}\PY{p}{)}
+            \PY{n}{total} \PY{o}{+}\PY{o}{=} \PY{n}{post}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]}
+
+    \PY{c+c1}{\PYZsh{} Re\PYZhy{}normalize so total sum of probabilities adds up to 1}
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{rows}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cols}\PY{p}{)}\PY{p}{:}
+            \PY{n}{post}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{n}{post}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{/} \PY{n}{total}
+
+    \PY{c+c1}{\PYZsh{} Check the updated belief.}
+    \PY{k}{if} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{post}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mf}{1.0}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mf}{1e\PYZhy{}12}\PY{p}{:}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{WARNING: Belief does not add up to 100}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Return the updated belief.}
+    \PY{k}{return} \PY{n}{post}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Pre\PYZhy{}compute the Modeled Sensor Probability Grid}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Input:  drow, dcol   Sensor direction in row/col}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Output: prob         Grid of modeled probabilities that (sensor==True)}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{def} \PY{n+nf}{precomputeSensorProbability}\PY{p}{(}\PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Prepare an empty probability grid.}
+    \PY{n}{prob} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rows}\PY{p}{,} \PY{n}{cols}\PY{p}{)}\PY{p}{)}
+    \PY{n}{probSensor} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{0.9}\PY{p}{,} \PY{l+m+mf}{0.6}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{]}
+
+    \PY{c+c1}{\PYZsh{} Pre\PYZhy{}compute the sensor probability on the grid.}
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{rows}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cols}\PY{p}{)}\PY{p}{:}
+            \PY{n}{p} \PY{o}{=} \PY{l+m+mf}{0.0}
+
+            \PY{k}{for} \PY{n}{d} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}\PY{p}{:}
+                \PY{n}{new\PYZus{}row} \PY{o}{=} \PY{n}{row} \PY{o}{+} \PY{n}{d} \PY{o}{*} \PY{n}{drow}
+                \PY{n}{new\PYZus{}col} \PY{o}{=} \PY{n}{col} \PY{o}{+} \PY{n}{d} \PY{o}{*} \PY{n}{dcol}
+            
+                \PY{c+c1}{\PYZsh{} If new cell is out of bounds or there\PYZsq{}s a wall at that distance}
+                \PY{k}{if} \PY{p}{(}\PY{o+ow}{not} \PY{p}{(}\PY{n}{rows} \PY{o}{\PYZgt{}} \PY{n}{new\PYZus{}row} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{cols} \PY{o}{\PYZgt{}} \PY{n}{new\PYZus{}col} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)} \PY{o+ow}{or} \PY{p}{(}\PY{n}{walls}\PY{p}{[}\PY{n}{new\PYZus{}row}\PY{p}{,} \PY{n}{new\PYZus{}col}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{p} \PY{o}{=} \PY{n}{probSensor}\PY{p}{[}\PY{n}{d} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{]}
+                    \PY{k}{break}
+
+            \PY{n}{prob}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{n}{p}
+
+    \PY{c+c1}{\PYZsh{} Return the computed grid.}
+    \PY{k}{return} \PY{n}{prob}
+
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}  Main Code}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Initialize the robot simulation.}
+    \PY{c+c1}{\PYZsh{} FIXME... PICK THE \PYZdq{}REALITY\PYZdq{} WE SHOULD SIMULATE:}
+    
+    \PY{c+c1}{\PYZsh{} robot=Robot(walls)}
+    \PY{c+c1}{\PYZsh{} 4a }
+    \PY{c+c1}{\PYZsh{} robot=Robot(walls)}
+    \PY{c+c1}{\PYZsh{} 4b }
+    \PY{c+c1}{\PYZsh{} robot=Robot(walls, row=12, col=26)}
+    \PY{c+c1}{\PYZsh{} 5  }
+    \PY{c+c1}{\PYZsh{} robot=Robot(walls, row=12, col=26, pSensor=[0.9,0.6,0.3])}
+    \PY{c+c1}{\PYZsh{} 6  }
+    \PY{c+c1}{\PYZsh{} robot=Robot(walls, row=15, col=47, pSensor=[0.9,0.6,0.3], pCommand=0.8)}
+    \PY{c+c1}{\PYZsh{} 7  }
+    \PY{n}{robot}\PY{o}{=}\PY{n}{Robot}\PY{p}{(}\PY{n}{walls}\PY{p}{,} \PY{n}{row}\PY{o}{=} \PY{l+m+mi}{7}\PY{p}{,} \PY{n}{col}\PY{o}{=}\PY{l+m+mi}{12}\PY{p}{,} \PY{n}{pSensor}\PY{o}{=}\PY{p}{[}\PY{l+m+mf}{0.9}\PY{p}{,}\PY{l+m+mf}{0.6}\PY{p}{,}\PY{l+m+mf}{0.3}\PY{p}{]}\PY{p}{,} \PY{n}{pCommand}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{n}{kidnap}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+    \PY{c+c1}{\PYZsh{} Or to play:}
+    \PY{c+c1}{\PYZsh{}    robot=Robot(walls, pSensor=[0.9,0.6,0.3], pCommand=0.8)}
+
+
+    \PY{c+c1}{\PYZsh{} Initialize the figure.}
+    \PY{n}{visual} \PY{o}{=} \PY{n}{Visualization}\PY{p}{(}\PY{n}{walls}\PY{p}{,} \PY{n}{robot}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Pre\PYZhy{}compute the probability grids for each sensor reading.}
+    \PY{n}{probUp}    \PY{o}{=} \PY{n}{precomputeSensorProbability}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}  \PY{l+m+mi}{0}\PY{p}{)}
+    \PY{n}{probRight} \PY{o}{=} \PY{n}{precomputeSensorProbability}\PY{p}{(} \PY{l+m+mi}{0}\PY{p}{,}  \PY{l+m+mi}{1}\PY{p}{)}
+    \PY{n}{probDown}  \PY{o}{=} \PY{n}{precomputeSensorProbability}\PY{p}{(} \PY{l+m+mi}{1}\PY{p}{,}  \PY{l+m+mi}{0}\PY{p}{)}
+    \PY{n}{probLeft}  \PY{o}{=} \PY{n}{precomputeSensorProbability}\PY{p}{(} \PY{l+m+mi}{0}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Show the sensor probability maps.}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{n}{probUp}\PY{p}{,}    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability of up    proximal sensor reading True}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{n}{probRight}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability of right proximal sensor reading True}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{n}{probDown}\PY{p}{,}  \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability of down  proximal sensor reading True}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{n}{probLeft}\PY{p}{,}  \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability of left  proximal sensor reading True}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{} Start with a uniform belief grid.}
+    \PY{n}{bel} \PY{o}{=} \PY{p}{(}\PY{l+m+mf}{1.0} \PY{o}{\PYZhy{}} \PY{n}{walls}\PY{p}{)} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{l+m+mf}{1.0} \PY{o}{\PYZhy{}} \PY{n}{walls}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Loop continually.}
+    \PY{k}{while} \PY{k+kc}{True}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Show the current belief.  Also show the actual position.}
+        \PY{n}{visual}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{n}{bel}\PY{p}{,} \PY{n}{markRobot}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Get the command key to determine the direction.}
+        \PY{k}{while} \PY{k+kc}{True}\PY{p}{:}
+            \PY{n}{key} \PY{o}{=} \PY{n+nb}{input}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cmd (q=quit, i=up, m=down, j=left, k=right) ?}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{k}{if}   \PY{p}{(}\PY{n}{key} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{q}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}  \PY{k}{return}
+            \PY{k}{elif} \PY{p}{(}\PY{n}{key} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{i}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}  \PY{p}{(}\PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)} \PY{o}{=} \PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}  \PY{l+m+mi}{0}\PY{p}{)} \PY{p}{;} \PY{k}{break} \PY{c+c1}{\PYZsh{} up}
+            \PY{k}{elif} \PY{p}{(}\PY{n}{key} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}  \PY{p}{(}\PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)} \PY{o}{=} \PY{p}{(} \PY{l+m+mi}{0}\PY{p}{,}  \PY{l+m+mi}{1}\PY{p}{)} \PY{p}{;} \PY{k}{break} \PY{c+c1}{\PYZsh{} right}
+            \PY{k}{elif} \PY{p}{(}\PY{n}{key} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}  \PY{p}{(}\PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)} \PY{o}{=} \PY{p}{(} \PY{l+m+mi}{1}\PY{p}{,}  \PY{l+m+mi}{0}\PY{p}{)} \PY{p}{;} \PY{k}{break} \PY{c+c1}{\PYZsh{} down}
+            \PY{k}{elif} \PY{p}{(}\PY{n}{key} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{j}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}  \PY{p}{(}\PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)} \PY{o}{=} \PY{p}{(} \PY{l+m+mi}{0}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)} \PY{p}{;} \PY{k}{break} \PY{c+c1}{\PYZsh{} left}
+
+        \PY{c+c1}{\PYZsh{} Move the robot in the simulation.}
+        \PY{n}{robot}\PY{o}{.}\PY{n}{command}\PY{p}{(}\PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)}
+
+
+        \PY{c+c1}{\PYZsh{} Compute a prediction.}
+        \PY{n}{prd} \PY{o}{=} \PY{n}{computePrediction}\PY{p}{(}\PY{n}{bel}\PY{p}{,} \PY{n}{drow}\PY{p}{,} \PY{n}{dcol}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{}visual.show(prd, \PYZdq{}Showing the prediction\PYZdq{})}
+
+        \PY{c+c1}{\PYZsh{} Correct the prediction/execute the measurement update.}
+        \PY{n}{bel} \PY{o}{=} \PY{n}{prd}
+        \PY{n}{bel} \PY{o}{=} \PY{n}{updateBelief}\PY{p}{(}\PY{n}{bel}\PY{p}{,} \PY{n}{probUp}\PY{p}{,}    \PY{n}{robot}\PY{o}{.}\PY{n}{sensor}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}  \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+        \PY{n}{bel} \PY{o}{=} \PY{n}{updateBelief}\PY{p}{(}\PY{n}{bel}\PY{p}{,} \PY{n}{probRight}\PY{p}{,} \PY{n}{robot}\PY{o}{.}\PY{n}{sensor}\PY{p}{(} \PY{l+m+mi}{0}\PY{p}{,}  \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+        \PY{n}{bel} \PY{o}{=} \PY{n}{updateBelief}\PY{p}{(}\PY{n}{bel}\PY{p}{,} \PY{n}{probDown}\PY{p}{,}  \PY{n}{robot}\PY{o}{.}\PY{n}{sensor}\PY{p}{(} \PY{l+m+mi}{1}\PY{p}{,}  \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+        \PY{n}{bel} \PY{o}{=} \PY{n}{updateBelief}\PY{p}{(}\PY{n}{bel}\PY{p}{,} \PY{n}{probLeft}\PY{p}{,}  \PY{n}{robot}\PY{o}{.}\PY{n}{sensor}\PY{p}{(} \PY{l+m+mi}{0}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+
+
+\PY{k}{if} \PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}
+    \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\end{document}

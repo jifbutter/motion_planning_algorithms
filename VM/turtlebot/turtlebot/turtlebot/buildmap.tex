@@ -1,0 +1,357 @@
+
+\documentclass{article}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+\begin{document}
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}buildmap.py}
+
+\PY{l+s+sd}{   This is the skeleton code for building a map.}
+
+\PY{l+s+sd}{   PLEASE FINISH WRITING THE CODE, especially where marked by FIXME.}
+
+\PY{l+s+sd}{   This explores the occupancy grid map.}
+
+\PY{l+s+sd}{   Node:        /buildmap}
+\PY{l+s+sd}{   Subscribe:   /scan                   sensor\PYZus{}msgs/Lsaerscan}
+\PY{l+s+sd}{   Publish:     /map                    nav\PYZus{}msgs/OccupancyGrid}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+
+\PY{c+c1}{\PYZsh{} ROS Imports}
+\PY{k+kn}{import} \PY{n+nn}{rclpy}
+
+\PY{k+kn}{from} \PY{n+nn}{rclpy}\PY{n+nn}{.}\PY{n+nn}{node}                 \PY{k+kn}{import} \PY{n}{Node}
+\PY{k+kn}{from} \PY{n+nn}{rclpy}\PY{n+nn}{.}\PY{n+nn}{time}                 \PY{k+kn}{import} \PY{n}{Time}\PY{p}{,} \PY{n}{Duration}
+\PY{k+kn}{from} \PY{n+nn}{rclpy}\PY{n+nn}{.}\PY{n+nn}{executors}            \PY{k+kn}{import} \PY{n}{MultiThreadedExecutor}
+\PY{k+kn}{from} \PY{n+nn}{rclpy}\PY{n+nn}{.}\PY{n+nn}{qos}                  \PY{k+kn}{import} \PY{n}{QoSProfile}\PY{p}{,} \PY{n}{DurabilityPolicy}
+
+\PY{k+kn}{from} \PY{n+nn}{tf2\PYZus{}ros}                    \PY{k+kn}{import} \PY{n}{TransformException}
+\PY{k+kn}{from} \PY{n+nn}{tf2\PYZus{}ros}\PY{n+nn}{.}\PY{n+nn}{buffer}             \PY{k+kn}{import} \PY{n}{Buffer}
+\PY{k+kn}{from} \PY{n+nn}{tf2\PYZus{}ros}\PY{n+nn}{.}\PY{n+nn}{transform\PYZus{}listener} \PY{k+kn}{import} \PY{n}{TransformListener}
+
+\PY{k+kn}{from} \PY{n+nn}{geometry\PYZus{}msgs}\PY{n+nn}{.}\PY{n+nn}{msg}          \PY{k+kn}{import} \PY{n}{Point}\PY{p}{,} \PY{n}{Quaternion}\PY{p}{,} \PY{n}{Pose}
+\PY{k+kn}{from} \PY{n+nn}{geometry\PYZus{}msgs}\PY{n+nn}{.}\PY{n+nn}{msg}          \PY{k+kn}{import} \PY{n}{Transform}\PY{p}{,} \PY{n}{TransformStamped}
+\PY{k+kn}{from} \PY{n+nn}{nav\PYZus{}msgs}\PY{n+nn}{.}\PY{n+nn}{msg}               \PY{k+kn}{import} \PY{n}{OccupancyGrid}
+\PY{k+kn}{from} \PY{n+nn}{sensor\PYZus{}msgs}\PY{n+nn}{.}\PY{n+nn}{msg}            \PY{k+kn}{import} \PY{n}{LaserScan}
+
+
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   Global Definitions}
+\PY{c+c1}{\PYZsh{}}
+\PY{n}{WIDTH}  \PY{o}{=} \PY{l+m+mi}{360}
+\PY{n}{HEIGHT} \PY{o}{=} \PY{l+m+mi}{240}
+
+\PY{n}{RESOLUTION} \PY{o}{=} \PY{l+m+mf}{0.05}
+\PY{n}{ORIGIN\PYZus{}X}   \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mf}{9.00}              \PY{c+c1}{\PYZsh{} Origin = location of lower\PYZhy{}left corner}
+\PY{n}{ORIGIN\PYZus{}Y}   \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mf}{6.00}
+
+\PY{n}{LFREE}     \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.3}         \PY{c+c1}{\PYZsh{} FIXME.  Set the log odds ratio of detecting freespace}
+\PY{n}{LOCCUPIED} \PY{o}{=} \PY{l+m+mf}{0.4}          \PY{c+c1}{\PYZsh{} FIXME.  Set the log odds ratio of detecting occupancy}
+
+
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   Custom Node Class}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{class} \PY{n+nc}{CustomNode}\PY{p}{(}\PY{n}{Node}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Initialization.}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{name}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Initialize the node, naming it as specified}
+        \PY{n+nb}{super}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n}{name}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Create the log\PYZhy{}odds\PYZhy{}ratio grid.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{logoddsratio} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{HEIGHT}\PY{p}{,} \PY{n}{WIDTH}\PY{p}{)}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Create a publisher to send the map data.  Note we use a}
+        \PY{c+c1}{\PYZsh{} quality of service with durability TRANSIENT\PYZus{}LOCAL, so new}
+        \PY{c+c1}{\PYZsh{} subscribers will get the last sent message.  RVIZ and others}
+        \PY{c+c1}{\PYZsh{} expect this for map messages.}
+        \PY{n}{quality} \PY{o}{=} \PY{n}{QoSProfile}\PY{p}{(}\PY{n}{durability}\PY{o}{=}\PY{n}{DurabilityPolicy}\PY{o}{.}\PY{n}{TRANSIENT\PYZus{}LOCAL}\PY{p}{,}
+                             \PY{n}{depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{pub} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{create\PYZus{}publisher}\PY{p}{(}\PY{n}{OccupancyGrid}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{/map}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{quality}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Instantiate a TF listener. This implicitly fills a local}
+        \PY{c+c1}{\PYZsh{} buffer, so we can quickly retrieve the transform information}
+        \PY{c+c1}{\PYZsh{} we need.  The buffer is filled via incoming TF message}
+        \PY{c+c1}{\PYZsh{} callbacks, so make sure this runs in a seperate thread.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{tfBuffer} \PY{o}{=} \PY{n}{Buffer}\PY{p}{(}\PY{p}{)}
+        \PY{n}{TransformListener}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{tfBuffer}\PY{p}{,} \PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{spin\PYZus{}thread}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Create a subscriber to the laser scan.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{create\PYZus{}subscription}\PY{p}{(}\PY{n}{LaserScan}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{/scan}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{laserCB}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Create a timer for sending the map data.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{timer} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{create\PYZus{}timer}\PY{p}{(}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sendMap}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Shutdown}
+    \PY{k}{def} \PY{n+nf}{shutdown}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Destroy the timer and node.}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{destroy\PYZus{}timer}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{timer}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{destroy\PYZus{}node}\PY{p}{(}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+    \PY{c+c1}{\PYZsh{} Send the map.  Called from the timer at 1Hz.}
+    \PY{k}{def} \PY{n+nf}{sendMap}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Convert the log odds ratio into a probability (0...1).}
+        \PY{c+c1}{\PYZsh{} Remember: self.logsoddsratio is a 360x240 NumPy array,}
+        \PY{c+c1}{\PYZsh{} where the values range from \PYZhy{}infinity to +infinity.  The}
+        \PY{c+c1}{\PYZsh{} probability should also be a 360x240 NumPy array, but with}
+        \PY{c+c1}{\PYZsh{} values ranging from 0 to 1, being the probability of a wall.}
+        \PY{c+c1}{\PYZsh{} FIXME: Convert the log\PYZhy{}odds\PYZhy{}ratio into a probability.}
+        \PY{n}{probability} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{logoddsratio}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{l+m+mf}{1.0} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{logoddsratio}\PY{p}{)}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Perpare the message and send.  Note this converts the}
+        \PY{c+c1}{\PYZsh{} probability into percent, sending integers from 0 to 100.}
+        \PY{n}{now}  \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{get\PYZus{}clock}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{now}\PY{p}{(}\PY{p}{)}
+        \PY{n}{data} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{100} \PY{o}{*} \PY{n}{probability}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map} \PY{o}{=} \PY{n}{OccupancyGrid}\PY{p}{(}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{header}\PY{o}{.}\PY{n}{frame\PYZus{}id}        \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{map}\PY{l+s+s1}{\PYZsq{}}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{header}\PY{o}{.}\PY{n}{stamp}           \PY{o}{=} \PY{n}{now}\PY{o}{.}\PY{n}{to\PYZus{}msg}\PY{p}{(}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{info}\PY{o}{.}\PY{n}{map\PYZus{}load\PYZus{}time}     \PY{o}{=} \PY{n}{now}\PY{o}{.}\PY{n}{to\PYZus{}msg}\PY{p}{(}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{info}\PY{o}{.}\PY{n}{resolution}        \PY{o}{=} \PY{n}{RESOLUTION}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{info}\PY{o}{.}\PY{n}{width}             \PY{o}{=} \PY{n}{WIDTH}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{info}\PY{o}{.}\PY{n}{height}            \PY{o}{=} \PY{n}{HEIGHT}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{info}\PY{o}{.}\PY{n}{origin}\PY{o}{.}\PY{n}{position}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{ORIGIN\PYZus{}X}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{info}\PY{o}{.}\PY{n}{origin}\PY{o}{.}\PY{n}{position}\PY{o}{.}\PY{n}{y} \PY{o}{=} \PY{n}{ORIGIN\PYZus{}Y}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{o}{.}\PY{n}{data}                   \PY{o}{=} \PY{n}{data}
+
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{pub}\PY{o}{.}\PY{n}{publish}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{map}\PY{p}{)}
+
+
+    \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+    \PY{c+c1}{\PYZsh{} Utilities:}
+    \PY{c+c1}{\PYZsh{} Set the log odds ratio value}
+    \PY{k}{def} \PY{n+nf}{set}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{u}\PY{p}{,} \PY{n}{v}\PY{p}{,} \PY{n}{value}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Update only if legal.}
+        \PY{k}{if} \PY{p}{(}\PY{n}{u}\PY{o}{\PYZgt{}}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n}{u}\PY{o}{\PYZlt{}}\PY{n}{WIDTH}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n}{v}\PY{o}{\PYZgt{}}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n}{v}\PY{o}{\PYZlt{}}\PY{n}{HEIGHT}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{logoddsratio}\PY{p}{[}\PY{n}{v}\PY{p}{,}\PY{n}{u}\PY{p}{]} \PY{o}{=} \PY{n}{value}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{get\PYZus{}logger}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{warn}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Out of bounds (}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{, }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{u}\PY{p}{,}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Adjust the log odds ratio value}
+    \PY{k}{def} \PY{n+nf}{adjust}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{u}\PY{p}{,} \PY{n}{v}\PY{p}{,} \PY{n}{delta}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Update only if legal.}
+        \PY{k}{if} \PY{p}{(}\PY{n}{u}\PY{o}{\PYZgt{}}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n}{u}\PY{o}{\PYZlt{}}\PY{n}{WIDTH}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n}{v}\PY{o}{\PYZgt{}}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n}{v}\PY{o}{\PYZlt{}}\PY{n}{HEIGHT}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{logoddsratio}\PY{p}{[}\PY{n}{v}\PY{p}{,}\PY{n}{u}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{delta}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{get\PYZus{}logger}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{warn}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Out of bounds (}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{, }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{u}\PY{p}{,}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Return a list of all intermediate (integer) pixel coordinates}
+    \PY{c+c1}{\PYZsh{} from (start) to (end) pixel coordinates (possibly non\PYZhy{}integer).}
+    \PY{c+c1}{\PYZsh{} In classic Python fashion, this excludes the end coordinates.}
+    \PY{k}{def} \PY{n+nf}{bresenham}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{start}\PY{p}{,} \PY{n}{end}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Extract the coordinates}
+        \PY{p}{(}\PY{n}{us}\PY{p}{,} \PY{n}{vs}\PY{p}{)} \PY{o}{=} \PY{n}{start}
+        \PY{p}{(}\PY{n}{ue}\PY{p}{,} \PY{n}{ve}\PY{p}{)} \PY{o}{=} \PY{n}{end}
+
+        \PY{c+c1}{\PYZsh{} Move along ray (excluding endpoint).}
+        \PY{k}{if} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{ue}\PY{o}{\PYZhy{}}\PY{n}{us}\PY{p}{)} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{ve}\PY{o}{\PYZhy{}}\PY{n}{vs}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return}\PY{p}{[}\PY{p}{(}\PY{n}{u}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{vs} \PY{o}{+} \PY{p}{(}\PY{n}{ve}\PY{o}{\PYZhy{}}\PY{n}{vs}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{ue}\PY{o}{\PYZhy{}}\PY{n}{us}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{u}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{o}{\PYZhy{}}\PY{n}{us}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                   \PY{k}{for} \PY{n}{u} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{us}\PY{p}{)}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{ue}\PY{p}{)}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sign}\PY{p}{(}\PY{n}{ue}\PY{o}{\PYZhy{}}\PY{n}{us}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+        \PY{k}{else}\PY{p}{:}
+            \PY{k}{return}\PY{p}{[}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{us} \PY{o}{+} \PY{p}{(}\PY{n}{ue}\PY{o}{\PYZhy{}}\PY{n}{us}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{ve}\PY{o}{\PYZhy{}}\PY{n}{vs}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{v}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{o}{\PYZhy{}}\PY{n}{vs}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{v}\PY{p}{)}
+                   \PY{k}{for} \PY{n}{v} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{vs}\PY{p}{)}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{ve}\PY{p}{)}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sign}\PY{p}{(}\PY{n}{ve}\PY{o}{\PYZhy{}}\PY{n}{vs}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+
+
+    \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+    \PY{c+c1}{\PYZsh{} Laserscan CB.  Process the scans.}
+    \PY{k}{def} \PY{n+nf}{laserCB}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{msg}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} Grab the transformation between map and laser\PYZsq{}s scan frames.}
+        \PY{c+c1}{\PYZsh{} Note the below asks for the lastest known transform.  If we}
+        \PY{c+c1}{\PYZsh{} use Time.from\PYZus{}msg(msg.header.stamp) in place of Time(), we}
+        \PY{c+c1}{\PYZsh{} could determine the transform at the exact time of the scan.}
+        \PY{c+c1}{\PYZsh{} But that delay a little if the latest TF data is behind.}
+        \PY{k}{try}\PY{p}{:}
+            \PY{n}{tfmsg} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{tfBuffer}\PY{o}{.}\PY{n}{lookup\PYZus{}transform}\PY{p}{(}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{map}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{msg}\PY{o}{.}\PY{n}{header}\PY{o}{.}\PY{n}{frame\PYZus{}id}\PY{p}{,} \PY{n}{rclpy}\PY{o}{.}\PY{n}{time}\PY{o}{.}\PY{n}{Time}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        \PY{k}{except} \PY{n}{TransformException} \PY{k}{as} \PY{n}{ex}\PY{p}{:}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{get\PYZus{}logger}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{warn}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Unable to get transform: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{ex}\PY{p}{,}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return}
+
+        \PY{c+c1}{\PYZsh{} Extract the laser scanner\PYZsq{}s position and orientation.}
+        \PY{n}{xc}     \PY{o}{=} \PY{n}{tfmsg}\PY{o}{.}\PY{n}{transform}\PY{o}{.}\PY{n}{translation}\PY{o}{.}\PY{n}{x}
+        \PY{n}{yc}     \PY{o}{=} \PY{n}{tfmsg}\PY{o}{.}\PY{n}{transform}\PY{o}{.}\PY{n}{translation}\PY{o}{.}\PY{n}{y}
+        \PY{n}{thetac} \PY{o}{=} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{arctan2}\PY{p}{(}\PY{n}{tfmsg}\PY{o}{.}\PY{n}{transform}\PY{o}{.}\PY{n}{rotation}\PY{o}{.}\PY{n}{z}\PY{p}{,}
+                                \PY{n}{tfmsg}\PY{o}{.}\PY{n}{transform}\PY{o}{.}\PY{n}{rotation}\PY{o}{.}\PY{n}{w}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} Grab the rays: each ray\PYZsq{}s range and angle relative to the}
+        \PY{c+c1}{\PYZsh{} turtlebot\PYZsq{}s position and orientation.}
+        \PY{n}{rmin}     \PY{o}{=} \PY{n}{msg}\PY{o}{.}\PY{n}{range\PYZus{}min}        \PY{c+c1}{\PYZsh{} Sensor minimum range to be valid}
+        \PY{n}{rmax}     \PY{o}{=} \PY{n}{msg}\PY{o}{.}\PY{n}{range\PYZus{}max}        \PY{c+c1}{\PYZsh{} Sensor maximum range to be valid}
+        \PY{n}{ranges}   \PY{o}{=} \PY{n}{msg}\PY{o}{.}\PY{n}{ranges}           \PY{c+c1}{\PYZsh{} List of ranges for each angle}
+
+        \PY{n}{thetamin} \PY{o}{=} \PY{n}{msg}\PY{o}{.}\PY{n}{angle\PYZus{}min}        \PY{c+c1}{\PYZsh{} Min angle (0.0)}
+        \PY{n}{thetamax} \PY{o}{=} \PY{n}{msg}\PY{o}{.}\PY{n}{angle\PYZus{}max}        \PY{c+c1}{\PYZsh{} Max angle (2pi)}
+        \PY{n}{thetainc} \PY{o}{=} \PY{n}{msg}\PY{o}{.}\PY{n}{angle\PYZus{}increment}  \PY{c+c1}{\PYZsh{} Delta between angles (2pi/360)}
+        \PY{n}{thetas}   \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n}{thetamin}\PY{p}{,} \PY{n}{thetamax}\PY{p}{,} \PY{n}{thetainc}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+        \PY{c+c1}{\PYZsh{} FIXME: PROCESS THE LASER SCAN TO UPDATE THE LOG ODDS RATIO!}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+
+        \PY{c+c1}{\PYZsh{} Calculate deltas, scale them based on resolution, set new u,v values}
+        \PY{n}{dx} \PY{o}{=} \PY{n}{xc} \PY{o}{\PYZhy{}} \PY{n}{ORIGIN\PYZus{}X}
+        \PY{n}{dy} \PY{o}{=} \PY{n}{yc} \PY{o}{\PYZhy{}} \PY{n}{ORIGIN\PYZus{}Y}
+        \PY{n}{u0} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{dx} \PY{o}{/} \PY{n}{RESOLUTION}\PY{p}{)}
+        \PY{n}{v0} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{dy} \PY{o}{/} \PY{n}{RESOLUTION}\PY{p}{)}
+        \PY{n}{us}\PY{p}{,} \PY{n}{vs} \PY{o}{=} \PY{n}{u0}\PY{p}{,} \PY{n}{v0}
+        \PY{c+c1}{\PYZsh{} self.set(u, v, 2.0)}
+
+        \PY{c+c1}{\PYZsh{} Loop through each r, theta combination}
+        \PY{k}{for} \PY{n}{r}\PY{p}{,} \PY{n}{t} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{ranges}\PY{p}{,} \PY{n}{thetas}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{o+ow}{not} \PY{n}{np}\PY{o}{.}\PY{n}{isfinite}\PY{p}{(}\PY{n}{r}\PY{p}{)}\PY{p}{:}
+                \PY{k}{continue}
+            \PY{k}{if} \PY{n}{rmin} \PY{o}{\PYZlt{}} \PY{n}{r} \PY{o}{\PYZlt{}} \PY{n}{rmax}\PY{p}{:}
+                \PY{n}{angle} \PY{o}{=} \PY{n}{t} \PY{o}{+} \PY{n}{thetac}
+                \PY{c+c1}{\PYZsh{} Find where the ray hit using trigonometry}
+                \PY{n}{x} \PY{o}{=} \PY{n}{xc} \PY{o}{+} \PY{n}{r} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{angle}\PY{p}{)}
+                \PY{n}{y} \PY{o}{=} \PY{n}{yc} \PY{o}{+} \PY{n}{r} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{angle}\PY{p}{)}
+
+                \PY{n}{dx} \PY{o}{=} \PY{n}{x} \PY{o}{\PYZhy{}} \PY{n}{ORIGIN\PYZus{}X}
+                \PY{n}{dy} \PY{o}{=} \PY{n}{y} \PY{o}{\PYZhy{}} \PY{n}{ORIGIN\PYZus{}Y}
+
+                \PY{n}{ue} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{dx} \PY{o}{/} \PY{n}{RESOLUTION}\PY{p}{)}
+                \PY{n}{ve} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{dy} \PY{o}{/} \PY{n}{RESOLUTION}\PY{p}{)}
+
+                \PY{k}{if} \PY{p}{(}\PY{n}{ue} \PY{o}{\PYZlt{}} \PY{l+m+mi}{0} \PY{o+ow}{or} \PY{n}{ue} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{n}{WIDTH} \PY{o+ow}{or} \PY{n}{ve} \PY{o}{\PYZlt{}} \PY{l+m+mi}{0} \PY{o+ow}{or} \PY{n}{ve} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{n}{HEIGHT}\PY{p}{)}\PY{p}{:}
+                    \PY{k}{continue}
+                
+                \PY{k}{for} \PY{p}{(}\PY{n}{u}\PY{p}{,} \PY{n}{v}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{bresenham}\PY{p}{(}\PY{p}{(}\PY{n}{us}\PY{p}{,} \PY{n}{vs}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{ue}\PY{p}{,} \PY{n}{ve}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{adjust}\PY{p}{(}\PY{n}{u}\PY{p}{,} \PY{n}{v}\PY{p}{,} \PY{n}{LFREE}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{adjust}\PY{p}{(}\PY{n}{ue}\PY{p}{,} \PY{n}{ve}\PY{p}{,} \PY{n}{LOCCUPIED}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{}}
+\PY{c+c1}{\PYZsh{}   Main Code}
+\PY{c+c1}{\PYZsh{}}
+\PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{n}{args}\PY{o}{=}\PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Initialize ROS.}
+    \PY{n}{rclpy}\PY{o}{.}\PY{n}{init}\PY{p}{(}\PY{n}{args}\PY{o}{=}\PY{n}{args}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Instantiate the node.}
+    \PY{n}{node} \PY{o}{=} \PY{n}{CustomNode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{buildmap}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Spin, until interrupted.}
+    \PY{n}{rclpy}\PY{o}{.}\PY{n}{spin}\PY{p}{(}\PY{n}{node}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Shutdown the node and ROS.}
+    \PY{n}{node}\PY{o}{.}\PY{n}{shutdown}\PY{p}{(}\PY{p}{)}
+    \PY{n}{rclpy}\PY{o}{.}\PY{n}{shutdown}\PY{p}{(}\PY{p}{)}
+
+\PY{k}{if} \PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}
+    \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\end{document}
